@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Valentine's Day</title>
+    <style>
+        body {
+            background-color: #ffc8fd;
+            font-family: 'Comic Sans MS', cursive;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        .container {
+            text-align: center;
+        }
+
+        h1 {
+            color: #ff6b6b;
+            font-size: 2.5em;
+            margin-bottom: 20px;
+        }
+
+        .buttons {
+            margin: 20px 0;
+        }
+
+        button {
+            padding: 10px 20px;
+            margin: 0 10px;
+            border: none;
+            border-radius: 20px;
+            cursor: pointer;
+            transition: all 0.3s;
+            font-size: 1.2em;
+            position: relative;
+        }
+
+        #yesBtn {
+            background-color: #97cdff;
+            color: white;
+            z-index: 2;
+        }
+
+        #noBtn {
+            background-color: #ff6b6b;
+            color: white;
+            z-index: 1;
+        }
+
+        .gif {
+            margin: 20px 0;
+        }
+
+        .gif img {
+            max-width: 150px;
+            height: auto;
+            border-radius: 10px;
+        }
+
+        .footer {
+            position: fixed;
+            bottom: 20px;
+            color: #ff6b6b;
+            font-size: 1.2em;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Hi Miss Purvi Shah!
+        Will you be my Valentine? 💝</h1>
+        <div class="gif">
+            <img src="https://i.ibb.co/HpH50h5q/Whats-App-Image-2026-02-02-at-3-30-44-AM.jpg" alt="Whats-App-Image-2026-02-02-at-3-30-44-AM" border="0"></a>
+        </div>
+        <div class="buttons">
+            <button id="yesBtn">Yes!</button>
+            <button id="noBtn">No >:(</button>
+        </div>
+    </div>
+    <div class="footer">From <span id="from">Nikhil Chawla</span> to <span id="to">Pookie Purvi</span> 🎀💕</div>
+
+    <script>
+        // Get URL parameters
+        const urlParams = new URLSearchParams(window.location.search);
+        const fromParam = urlParams.get('from');
+        const toParam = urlParams.get('to');
+
+        // Update the text if parameters exist
+        if (fromParam) document.getElementById('from').textContent = fromParam;
+        if (toParam) document.getElementById('to').textContent = toParam;
+
+        const yesBtn = document.getElementById('yesBtn');
+        const noBtn = document.getElementById('noBtn');
+        const container = document.querySelector('.container');
+        let yesBtnSize = 1;
+        let noBtnSize = 1;
+
+        noBtn.addEventListener('click', () => {
+            yesBtnSize *= 1.25;
+            yesBtn.style.transform = `scale(${yesBtnSize})`;
+            noBtnSize -= 0.1;
+            noBtn.style.transform = `scale(${noBtnSize})`;
+        });
+
+        yesBtn.addEventListener('click', () => {
+            container.innerHTML = `
+                <h1>Yaaay! Miss You! See You Soon! 💖</h1>
+                <div class="gif">
+                   <a href="https://ibb.co/svJF39c2"><img src="https://i.ibb.co/Z61hTzvV/Whats-App-Image-2026-02-02-at-3-30-45-AM.jpg" alt="Whats App Image 2026 02 02 at 3 30 45 AM" border="0"></a>
+                </div>
+            `;
+        });
+    </script>
+</body>
+</html>
+
